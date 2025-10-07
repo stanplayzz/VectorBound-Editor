@@ -1,6 +1,5 @@
 #pragma once
 #include "app.hpp"
-
 #include <SFML/Graphics.hpp>
 
 struct PlacedTile {
@@ -26,7 +25,10 @@ public:
 
 	TileType currentTile{};
 	sf::Texture tileset;
+
+	sf::RectangleShape background;
 private:
 	std::vector<PlacedTile> placedTiles;
+
 	App& app;
 };

@@ -4,8 +4,7 @@
 #include <iostream>
 
 App::App() {
-	window.create(sf::VideoMode(
-		sf::Vector2u(GRID_WIDTH + 1, GRID_HEIGHT) * static_cast<unsigned int>(SCALE * TILESIZE)), 
+	window.create(sf::VideoMode({1280, 720}),
 		"Vector Bound Level Editor", sf::Style::Close);
 }
 
@@ -26,7 +25,7 @@ void App::run() {
 
 		editor.update(deltaTime, window);
 
-		window.clear(sf::Color(70, 70, 70));
+		window.clear(sf::Color(25, 25, 50));
 
 		editor.draw(window);
 

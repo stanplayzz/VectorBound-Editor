@@ -10,6 +10,8 @@ TileManager::TileManager(App& app) : app(app) {
 		throw std::runtime_error("Failed to load tileset at: " + path);
 	}
 
+	background.setSize(sf::Vector2f(app.GRID_WIDTH * app.TILESIZE * app.SCALE, app.GRID_HEIGHT * app.TILESIZE * app.SCALE));
+	background.setFillColor(sf::Color(35, 35, 70));
 }
 
 void TileManager::place(sf::Vector2i gridPosition) {

@@ -1,6 +1,7 @@
 #include "editor.hpp"
 
 #include <djson/json.hpp>
+#include <UltimateShapes/shapes.hpp>
 
 #include <Windows.h>
 #include <ShObjIdl.h>
@@ -112,13 +113,13 @@ void Editor::loadGrid() {
 	grid.setPrimitiveType(sf::PrimitiveType::Lines);
 
 	for (int x = 0; x <= width; x += app.TILESIZE * app.SCALE ) {
-		grid.append(sf::Vertex(sf::Vector2f(x, 0), sf::Color(200, 200, 200)));
-		grid.append(sf::Vertex(sf::Vector2f(x, height), sf::Color(200, 200, 200)));
+		grid.append(sf::Vertex(sf::Vector2f(x, 0), sf::Color(100, 100, 100)));
+		grid.append(sf::Vertex(sf::Vector2f(x, height), sf::Color(100, 100, 100)));
 	}
 
 	for (int y = 0; y <= height; y += app.TILESIZE * app.SCALE) { 
-		grid.append(sf::Vertex(sf::Vector2f(0, y), sf::Color(200, 200, 200)));
-		grid.append(sf::Vertex(sf::Vector2f(width, y), sf::Color(200, 200, 200)));
+		grid.append(sf::Vertex(sf::Vector2f(0, y), sf::Color(100, 100, 100)));
+		grid.append(sf::Vertex(sf::Vector2f(width, y), sf::Color(100, 100, 100)));
 	}
 }
 
@@ -136,6 +137,7 @@ void Editor::loadHotbar() {
 }
 
 void Editor::draw(sf::RenderWindow& window) {
+	window.draw(tileManager.background);
 	window.draw(grid);
 	window.draw(hover);
 	for (auto& sprite : hotbar) {

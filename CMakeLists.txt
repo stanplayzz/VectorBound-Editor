@@ -19,17 +19,17 @@ FetchContent_MakeAvailable(SFML)
 FetchContent_Declare(
         djson
         GIT_REPOSITORY https://github.com/karnkaul/djson
-        GIT_TAG v3.1.1
+        GIT_TAG v3.1.3
 )
 FetchContent_MakeAvailable(djson)
 
-# tiny file dialogs
-add_library(
-    tinyfiledialogs
-    external/tinyfiledialogs/tinyfiledialogs.cpp
+# ultimate shapes
+FetchContent_Declare(
+    ultimateshapes
+    GIT_REPOSITORY https://github.com/stanplayzz/UltimateShapes
+    GIT_TAG v1
 )
-target_include_directories(tinyfiledialogs PUBLIC external/tinyfiledialogs)
-
+FetchContent_MakeAvailable(ultimateshapes)
 
 file(GLOB SOURCES "src/*.cpp")
 
@@ -37,4 +37,4 @@ add_executable(main ${SOURCES} )
 target_compile_features(main PRIVATE cxx_std_23)
 target_compile_definitions(main PRIVATE ASSETS_DIR="${PROJECT_SOURCE_DIR}/assets")
 target_compile_definitions(main PRIVATE LEVEL_OUTPUT_DIR="${PROJECT_SOURCE_DIR}/LevelOutput")
-target_link_libraries(main PRIVATE SFML::Graphics SFML::Audio djson::djson tinyfiledialogs)
+target_link_libraries(main PRIVATE SFML::Graphics SFML::Audio djson::djson ultimateshapes)
