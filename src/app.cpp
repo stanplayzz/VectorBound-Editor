@@ -6,6 +6,9 @@
 App::App() {
 	window.create(sf::VideoMode({1280, 720}),
 		"Vector Bound Level Editor", sf::Style::Close);
+	sf::View view = window.getDefaultView();
+	view.setViewport(sf::FloatRect({ 0.f, 0.5f }, { 1.f, 1.f }));
+	window.setView(view);
 }
 
 void App::run() {
